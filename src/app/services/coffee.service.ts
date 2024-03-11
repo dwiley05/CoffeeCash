@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 export interface Coworker {
   name: string;
@@ -20,7 +20,7 @@ interface CoffeePrices {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class CoffeeService {
   get averagePaid(): number {
@@ -35,64 +35,64 @@ export class CoffeeService {
 
   private coworkers: Coworker[] = [
     {
-      name: 'Bob',
-      coffee: 'cappuccino',
+      name: "Bob",
+      coffee: "cappuccino",
       totalPaid: 30,
       timesPaid: 5,
       totalConsumptionValue: 0,
       totalDrinkValue: 3.5,
     },
     {
-      name: 'Jeremy',
-      coffee: 'black',
+      name: "Jeremy",
+      coffee: "black",
       totalPaid: 10,
       timesPaid: 4,
       totalConsumptionValue: 0,
       totalDrinkValue: 2.0,
     },
     {
-      name: 'Manny',
-      coffee: 'mocha',
+      name: "Manny",
+      coffee: "mocha",
       totalPaid: 20,
       timesPaid: 2,
       totalConsumptionValue: 0,
       totalDrinkValue: 4.5,
     },
     {
-      name: 'Marge',
-      coffee: 'black',
+      name: "Marge",
+      coffee: "black",
       totalPaid: 5,
       timesPaid: 1,
       totalConsumptionValue: 0,
       totalDrinkValue: 2.0,
     },
     {
-      name: 'Mallory',
-      coffee: 'cappuccino',
+      name: "Mallory",
+      coffee: "cappuccino",
       totalPaid: 25.5,
       timesPaid: 6,
       totalConsumptionValue: 0,
       totalDrinkValue: 3.5,
     },
     {
-      name: 'Trent',
-      coffee: 'black',
+      name: "Trent",
+      coffee: "black",
       totalPaid: 40,
       timesPaid: 7,
       totalConsumptionValue: 0,
       totalDrinkValue: 2.0,
     },
     {
-      name: 'Victor',
-      coffee: 'latte',
+      name: "Victor",
+      coffee: "latte",
       totalPaid: 29,
       timesPaid: 10,
       totalConsumptionValue: 0,
       totalDrinkValue: 4.0,
     },
     {
-      name: 'Joe',
-      coffee: 'black',
+      name: "Joe",
+      coffee: "black",
       totalPaid: 31,
       timesPaid: 18,
       totalConsumptionValue: 0,
@@ -109,13 +109,13 @@ export class CoffeeService {
 
   private cart: Order[] = [];
   private currentCartTotal = 0;
-  private paymentMode: 'ParticipationEquityMode' | 'BalancedContributionsMode' =
-    'BalancedContributionsMode';
+  private paymentMode: "ParticipationEquityMode" | "BalancedContributionsMode" =
+    "BalancedContributionsMode";
 
   constructor() {}
 
   selectPayer(): string {
-    if (this.paymentMode === 'BalancedContributionsMode') {
+    if (this.paymentMode === "BalancedContributionsMode") {
       return this.selectPayerBasedOnBalancedContributions();
     } else {
       return this.selectPayerBasedOnParticipationEquity();
@@ -133,11 +133,11 @@ export class CoffeeService {
     if (!payer) return;
 
     payer.totalPaid += totalPayment;
-    payer.timesPaid += 1; // Increment the count
+    payer.timesPaid += 1;
     payer.totalDrinkValue += this.calculateDrinkValueForPayment(
       payerName,
       totalPayment
-    ); // Correctly pass payerName here
+    );
   }
 
   getCoworkers(): Coworker[] {
@@ -189,12 +189,12 @@ export class CoffeeService {
   }
 
   setPaymentMode(
-    mode: 'ParticipationEquityMode' | 'BalancedContributionsMode'
+    mode: "ParticipationEquityMode" | "BalancedContributionsMode"
   ) {
     this.paymentMode = mode;
   }
 
-  getPaymentMode(): 'ParticipationEquityMode' | 'BalancedContributionsMode' {
+  getPaymentMode(): "ParticipationEquityMode" | "BalancedContributionsMode" {
     return this.paymentMode;
   }
 
