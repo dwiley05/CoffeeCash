@@ -1,0 +1,26 @@
+<mat-list class="mat-list">
+  <mat-list-item class="list-item" *ngFor="let coworker of coworkers">
+    <div class="coworker-info d-flex flex-row align-items-center">
+      <mat-icon mat-list-icon>person</mat-icon>
+      <div class="info-container">
+        <h4>{{ coworker.name }}</h4>
+        <p>Total Paid: {{ coworker.totalPaid | currency }}</p>
+      </div>
+      <p class="ms-auto">
+        Times Paid: {{ coworker.timesPaid }}
+      </p>
+      <div class="payment-difference ms-auto">
+        <p
+          [ngClass]="{
+            'difference-positive': coworker.totalPaid - averagePaid > 0,
+            'difference-negative': coworker.totalPaid - averagePaid < 0
+          }"
+        >
+          {{ coworker.totalPaid - averagePaid > 0 ? "Overpaid" : "Underpaid" }}:
+          {{ coworker.totalPaid - averagePaid | currency }}
+        </p>
+      </div>
+    </div>
+  </mat-list-item>
+</mat-list>
+s

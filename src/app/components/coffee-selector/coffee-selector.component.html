@@ -1,0 +1,73 @@
+<div class="d-flex flex-column">
+  <div class="next-payer-info">
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>Next Up for Coffee</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ nextPayer }} is buying the next round!</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <h1 class="text-center">Coffee Selector</h1>
+  <div class="mx-auto">
+    <div class="mx-auto text-center">
+      <button class="toggle-btn" mat-button (click)="togglePaymentMode()">
+        Toggle Mode
+      </button>
+    </div>
+
+    <div>
+      <h5 class="mt-2">Current Mode: {{ currentMode }}</h5>
+    </div>
+  </div>
+  <div class="mx-auto">
+    <div class="list-wrapper">
+      <mat-list>
+        <mat-list-item class="list-item" *ngFor="let coworker of coworkers">
+          <div class="coworker-info d-flex flex-row">
+            <mat-icon mat-list-icon>person</mat-icon>
+            <h4 class="ms-3">{{ coworker.name }}</h4>
+            <p class="ms-5">{{ coworker.coffee }}</p>
+
+            <p class="ms-5">Total Paid: {{ coworker.totalPaid | currency }}</p>
+            <button
+              class="add-to-cart"
+              mat-button
+              (click)="addToCart(coworker)"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+
+    <div class="cart-display">
+      <h3>Cart</h3>
+      <ul>
+        <li *ngFor="let order of coffeeService.getCart()">
+          {{ order.name }}: {{ order.coffee }} - ${{ order.price }}
+        </li>
+      </ul>
+      <p><strong>Total:</strong> ${{ coffeeService.calculateTotal() }}</p>
+      <button
+        class="pay-for-coffee"
+        mat-button
+        color="accent"
+        (click)="payForCoffee()"
+        [disabled]="!canPayForCoffee()"
+      >
+        Pay for Coffee
+      </button>
+      <p class="mt-3">
+        You cannot pay for coffee until all coworkers have added to the cart.
+      </p>
+    </div>
+  </div>
+  <div class="mx-auto">
+    <h4 class="text-center mt-4">Statistics</h4>
+    <app-stats [coworkers]="coworkers"></app-stats>
+  </div>
+</div>

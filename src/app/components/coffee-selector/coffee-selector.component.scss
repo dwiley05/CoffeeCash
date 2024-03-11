@@ -1,0 +1,64 @@
+.next-payer,
+.list-wrapper,
+.cart-display {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.list-wrapper {
+  border: 2px solid black;
+  height: 50vh;
+  overflow-y: auto; /* Keeps the list scrollable */
+  width: 60vw;
+}
+
+mat-list-item.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: black;
+  height: auto;
+  padding: 8px;
+  border: 1px black;
+}
+
+mat-list-item button.add-to-cart {
+  margin-left: auto;
+  margin-right: 1em;
+  background-color: blue;
+  margin-bottom: 1em;
+}
+
+button.pay-for-coffee {
+  background-color: green;
+  color: white;
+}
+
+button.pay-for-coffee[disabled] {
+  background-color: #a5d6a7;
+  color: white;
+}
+
+.coworker-info {
+  flex-grow: 1;
+}
+
+h4,
+p,
+mat-icon {
+  color: black;
+}
+
+.toggle-btn {
+  background-color: blue;
+}
+
+.card {
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: lightblue;
+}
