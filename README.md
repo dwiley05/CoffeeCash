@@ -1,27 +1,21 @@
 # CoffeeCashApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
-
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Assumptions
 
-## Running end-to-end tests
+The two modes, Participation Equity Mode and Balanced Contributions Mode are selectable with the toggle mode button on the home page. They change the function that will be called to determine who has to pay for the coffee.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Participation Equity Mode: Will choose the coworker who's timesPaid is lower. Times Paid is the amount of times they've paid for for coffees for the group. This function will make sure everyone has paid for the groups coffees a similar amount of times, it does not account for the amount the drinks cost or how much the individual has already paid. 
 
-## Further help
+Balanced Contributions Mode: This mode will choose the coworker that has a lesser amountPaid, the function will keep the coworker group with a similar Total Paid. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## To use CoffeeCash
+
+Click the add to cart button for each coworker then click pay for coffee. This will iterate the buying rounds, which is the total amount of times the group as a total has bought drinks. The stats page below shows statistics for each coworker, including how much they overpaid against the averate or underpaid against the balance.
